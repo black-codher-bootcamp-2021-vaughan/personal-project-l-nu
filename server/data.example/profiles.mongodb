@@ -1,31 +1,78 @@
 // Below is some initial sample data to get you started.
 
-use("example_db"); // This is our example database. Make sure you don't call your database "example_db".
+use("myFirstDatabase"); // This is our example database. Make sure you don't call your database "example_db".
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-db.profiles.drop();
+db.footwear.drop();
 
 // Insert a few documents into the profiles collection.
-db.profiles.insertMany([  
-    {
-        "first_name": "Efua",
-        "last_name": "Akumanyi",
-        "location": "London"
+db.footwear.insertMany([  
+   {
+        "_id": "626ee701961b3c0ebfb81e6c",
+        "name": "Women Horsebit Loafers 1891 XIM",
+        "category": "Lofas",
+        "colour": [
+            "Black "
+        ],
+        "material": "Leather",
+        "length": " ",
+        "size": " ",
+        "brand": "Carmina",
+        "shoetype": "Flats ",
+        "price": "£209",
+        "image": "1609880779-horsebit_loafers_black_funchal_1891_l.webp",
+        "__v": 0
     },
     {
-        "first_name": "Gary",
-        "last_name": "McPherson",
-        "location": "London"
+        "_id": "626fc0aa961b3c0ebfb81e6f",
+        "name": "Dr Martens Black Ankle Boot",
+        "category": "Boots",
+        "colour": [
+            "Black "
+        ],
+        "material": "Leather",
+        "length": "Ankle",
+        "size": " ",
+        "brand": "Dr Martens",
+        "shoetype": "",
+        "price": "",
+        "image": "11821011.83.jpg",
+        "__v": 0
     },
     {
-        "first_name": "Tanya",
-        "last_name": "Powell",
-        "location": "London"
+        "_id": "626fc1de961b3c0ebfb81e71",
+        "name": "Carrie Forbes Atlas Loafers",
+        "category": "Shoes",
+        "colour": [
+            "Natural "
+        ],
+        "material": "Raffia, Leather Footbed",
+        "length": "",
+        "size": "",
+        "brand": "Carrie Forbes",
+        "shoetype": "Flats",
+        "price": "£272.62",
+        "image": "1582134678-cforb3002911611_q4_2-0._QL90_UX336_.webp",
+        "__v": 0
     },
     {
-        "first_name": "Michael",
-        "last_name": "Hael",
-        "location": "Port Harcourt city"
+        "_id": "62755af93eb6f753a6e0f5c7",
+        "name": "America's Cup Patent Leather And Mesh Sneakers",
+        "category": "Trainers",
+        "colour": [
+            "Grey",
+            "Blue",
+            "Silver"
+        ],
+        "material": "Leather, Mesh",
+        "length": "",
+        "size": "",
+        "brand": "Prada",
+        "shoetype": "",
+        "price": "",
+        "image": "prada-grey-blue-patent-silver-americas-cup-mesh-leather-sneaker-product-2-2738461-823163120.jpeg",
+        "__v": 0
     }
+
 ]);

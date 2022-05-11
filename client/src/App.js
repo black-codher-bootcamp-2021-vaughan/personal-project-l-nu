@@ -1,44 +1,56 @@
 import React, { useState, useEffect } from "react";
+import { Shoecard } from "./components/Shoecard";
+import BrandSelect from "./components/Select";
+import { Container, Stack } from "@mui/material";
+// import {Title} from './components/Title' ;
+// import { createTheme } from '@mui/material/styles';
+import { Header } from "./components/Header";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllShoes } from "./services/profileService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [shoes, setShoes] = useState(null);
 
   useEffect(() => {
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getShoes() {
+      if (!shoes) {
+        const response = await getAllShoes();
+        setShoes(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getShoes();
+  }, [shoes]);
 
-  const renderProfile = (user) => {
-    return (
-      <li key={user._id}>
-        <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
-        </h3>
-        <p>{user.location}</p>
-      </li>
-    );
+  const filterShoes = (brand) => {
+    async function getShoes() {
+      const response = await getAllShoes();
+      const filteredShoes = response.filter((shoe) => shoe.brand === brand);
+      setShoes(filteredShoes);
+ 
+    } 
+    getShoes()
   };
 
   return (
-    <div>
-      <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
-        ) : (
-          <p>No profiles found</p>
-        )}
-      </ul>
-    </div>
+    // <Createtheme>
+    <>
+      <Header />
+      <Container maxWidth="sm" Shoes>
+        <h1>Shoes</h1>
+
+        <BrandSelect filterShoes={filterShoes} />
+        <Stack spacing={2}>
+          {shoes && shoes.length > 0 ? (
+            shoes.map((item) => <Shoecard shoe={item} />)
+          ) : (
+            <p>No shoes found</p>
+          )}
+        </Stack>
+      </Container>
+    </>
+    // </Createtheme>
   );
 }
 
